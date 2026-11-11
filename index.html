@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CrateLoom — DJ Set Planner</title><style>:root{color-scheme:dark;font-family:Inter,system-ui,Arial;background:#0c0d12;color:#f4f4f8}*{box-sizing:border-box}body{margin:0}main{max-width:1050px;margin:auto;padding:28px 20px 80px}header{display:flex;justify-content:space-between;align-items:center;padding:12px 0 40px}.brand{font-size:26px;font-weight:850;letter-spacing:-1px}.brand span{color:#a78bfa}.pill{border:1px solid #51456e;border-radius:30px;padding:8px 13px;color:#cbb9ff;font-size:13px}h1{font-size:clamp(36px,6vw,62px);line-height:1.07;letter-spacing:-2px;margin:10px 0 14px}p{color:#b4b4c4;line-height:1.55}.hero{padding-bottom:28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#171821;border:1px solid #30303d;border-radius:18px;padding:23px;margin:18px 0}label{display:block;font-size:13px;color:#c9c9d5;margin:12px 0 7px}input,select{width:100%;background:#0d0e14;border:1px solid #414150;color:#fff;border-radius:10px;padding:12px;font-size:15px}button{background:#8965ed;color:white;border:0;border-radius:10px;padding:13px 18px;font-weight:750;cursor:pointer}button.secondary{background:#2c2d39}button:disabled{opacity:.5;cursor:not-allowed}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.track{display:grid;grid-template-columns:38px minmax(0,1fr) 80px 72px 170px;gap:10px;align-items:center;border-bottom:1px solid #34343d;padding:12px 0}.track small{display:block;color:#a8a8b7;margin-top:3px}.track button{padding:7px 9px;background:#292a37;margin:2px;font-size:12px}.track.locked{background:#201b31;border-left:3px solid #a78bfa;padding-left:8px}.track .controls{display:flex;flex-wrap:wrap;gap:2px}.track .controls button.active{background:#7351c4}.track .controls button:disabled{opacity:.35}.muted{font-size:13px;color:#9e9eb1}.hidden{display:none}.tag{background:#29223e;color:#c6a9ff;padding:4px 8px;border-radius:6px;font-size:12px}.error{color:#ffadad}.success{color:#a4edbe}footer{margin-top:30px;color:#8d8d9e;font-size:12px}@media(max-width:650px){.grid{grid-template-columns:1fr}.track{grid-template-columns:22px minmax(0,1fr) 55px 42px;font-size:12px}.track .controls{grid-column:2/-1}.track button{font-size:11px}.panel{padding:16px}}</style></head><body><main><header><div class="brand">crate<span>loom</span></div><div class="pill">Free preview · MVP</div></header><section class="hero"><div class="pill" style="display:inline-block">Intelligent DJ set planning</div><h1>Your tracks.<br>Your flow.<br><span style="color:#a78bfa">Your next set.</span></h1><p>Import your Rekordbox collection, build a set using tempo and harmonic compatibility, and explore transitions before you play.</p></section><section class="grid"><div class="panel"><h2>1. Import your music</h2><p>Choose a Rekordbox XML export. Your file is processed in your browser, not uploaded to a server.</p><label for="file">Rekordbox XML file</label><input id="file" type="file" accept=".xml,text/xml,application/xml"><div class="buttons"><button class="secondary" id="demo">Try demo library</button></div><p id="importStatus" class="muted">No library loaded yet.</p></div><div class="panel"><h2>2. Shape your set</h2><label for="playlist">Source playlist</label><select id="playlist" disabled><option value="all">Entire library — import XML first</option></select><p id="playlistStatus" class="muted">Import a Rekordbox XML export to see available playlists.</p><label for="count">Tracks in set</label><input id="count" type="number" min="2" max="100" value="12"><div class="grid" style="gap:10px"><div><label for="minBpm">Minimum BPM</label><input id="minBpm" type="number" min="1" max="299" step="0.1" placeholder="e.g. 120"></div><div><label for="maxBpm">Maximum BPM</label><input id="maxBpm" type="number" min="1" max="299" step="0.1" placeholder="e.g. 130"></div></div><p id="rangeStatus" class="muted">Leave either field blank for no limit.</p><label for="start">Starting energy</label><select id="start"><option value="steady">Steady tempo</option><option value="build">Build BPM gradually</option><option value="peak">Peak first</option></select><label for="keymode">Harmonic matching</label><select id="keymode"><option value="on">Prefer compatible keys</option><option value="off">Tempo only</option></select><div class="buttons"><button id="generate">Generate set</button><button id="reroll" class="secondary" disabled>Regenerate unlocked tracks</button></div></div></section><section class="panel"><h2>3. Your planned set <span id="counter" class="muted"></span></h2><p id="empty">Import a library or load the demo, then generate a set.</p><p class="muted">Use <strong>Keep in set</strong> to preserve a track while allowing CrateLoom to reorder it, or <strong>Pin position</strong> to preserve its exact slot. You can manually move either type of locked track. Use ↻ to replace an unlocked track.</p><div id="results"></div><div class="buttons hidden" id="actions"><button class="secondary" id="copy">Copy track order</button><button id="export">Export for Rekordbox <span style="font-size:11px">PRO</span></button></div><p id="notice" class="muted"></p></section><section class="panel"><h2>Free today. Pro later.</h2><div class="grid"><div><h3>Free</h3><p>Import, plan, preview transitions, and copy your set order.</p></div><div><h3>Pro · proposed $6.99/month</h3><p>Rekordbox-compatible exports, saved sets, and expanded discovery. Not available for purchase yet.</p></div></div></section><footer>CrateLoom MVP. Not affiliated with AlphaTheta or Rekordbox. Key matching is advisory; audition transitions before performing. No billing or login is active.</footer></main><script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CrateLoom — DJ Set Planner</title><style>:root{color-scheme:dark;font-family:Inter,system-ui,Arial;background:#0c0d12;color:#f4f4f8}*{box-sizing:border-box}body{margin:0}main{max-width:1050px;margin:auto;padding:28px 20px 80px}header{display:flex;justify-content:space-between;align-items:center;padding:12px 0 40px}.brand{font-size:26px;font-weight:850;letter-spacing:-1px}.brand span{color:#a78bfa}.pill{border:1px solid #51456e;border-radius:30px;padding:8px 13px;color:#cbb9ff;font-size:13px}h1{font-size:clamp(36px,6vw,62px);line-height:1.07;letter-spacing:-2px;margin:10px 0 14px}p{color:#b4b4c4;line-height:1.55}.hero{padding-bottom:28px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:#171821;border:1px solid #30303d;border-radius:18px;padding:23px;margin:18px 0}label{display:block;font-size:13px;color:#c9c9d5;margin:12px 0 7px}input,select{width:100%;background:#0d0e14;border:1px solid #414150;color:#fff;border-radius:10px;padding:12px;font-size:15px}button{background:#8965ed;color:white;border:0;border-radius:10px;padding:13px 18px;font-weight:750;cursor:pointer}button.secondary{background:#2c2d39}button:disabled{opacity:.5;cursor:not-allowed}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}.track{display:grid;grid-template-columns:38px minmax(0,1fr) 80px 72px 170px;gap:10px;align-items:center;border-bottom:1px solid #34343d;padding:12px 0}.track small{display:block;color:#a8a8b7;margin-top:3px}.track button{padding:7px 9px;background:#292a37;margin:2px;font-size:12px}.track.locked{background:#201b31;border-left:3px solid #a78bfa;padding-left:8px}.track .controls{display:flex;flex-wrap:wrap;gap:2px}.track .controls button.active{background:#7351c4}.track .controls button:disabled{opacity:.35}.muted{font-size:13px;color:#9e9eb1}.hidden{display:none}.tag{background:#29223e;color:#c6a9ff;padding:4px 8px;border-radius:6px;font-size:12px}.error{color:#ffadad}.success{color:#a4edbe}footer{margin-top:30px;color:#8d8d9e;font-size:12px}@media(max-width:650px){.grid{grid-template-columns:1fr}.track{grid-template-columns:22px minmax(0,1fr) 55px 42px;font-size:12px}.track .controls{grid-column:2/-1}.track button{font-size:11px}.panel{padding:16px}}</style></head><body><main><header><div class="brand">crate<span>loom</span></div><div class="pill">Free preview · v0.6</div></header><section class="hero"><div class="pill" style="display:inline-block">Intelligent DJ set planning</div><h1>Your tracks.<br>Your flow.<br><span style="color:#a78bfa">Your next set.</span></h1><p>Import your Rekordbox collection, build a set using tempo and harmonic compatibility, and explore transitions before you play.</p></section><section class="grid"><div class="panel"><h2>1. Import your music</h2><p>Choose a Rekordbox XML export. Your file is processed in your browser, not uploaded to a server.</p><label for="file">Rekordbox XML file</label><input id="file" type="file" accept=".xml,text/xml,application/xml"><div class="buttons"><button class="secondary" id="demo">Try demo library</button></div><p id="importStatus" class="muted">No library loaded yet.</p></div><div class="panel"><h2>2. Shape your set</h2><label for="playlist">Source playlist</label><select id="playlist" disabled><option value="all">Entire library — import XML first</option></select><p id="playlistStatus" class="muted">Import a Rekordbox XML export to see available playlists.</p><label for="count">Tracks in set</label><input id="count" type="number" min="2" max="100" value="12"><div class="grid" style="gap:10px"><div><label for="minBpm">Minimum BPM</label><input id="minBpm" type="number" min="1" max="299" step="0.1" placeholder="e.g. 120"></div><div><label for="maxBpm">Maximum BPM</label><input id="maxBpm" type="number" min="1" max="299" step="0.1" placeholder="e.g. 130"></div></div><p id="rangeStatus" class="muted">Leave either field blank for no limit.</p><label for="start">Starting energy</label><select id="start"><option value="steady">Steady tempo</option><option value="build">Build BPM gradually</option><option value="peak">Peak first</option><option value="arc">Warm up → peak → cool down</option></select><label for="keymode">Harmonic matching</label><select id="keymode"><option value="on">Prefer compatible keys</option><option value="off">Tempo only</option></select><div class="buttons"><button id="generate">Generate set</button><button id="reroll" class="secondary" disabled>Regenerate unlocked tracks</button></div></div></section><section class="panel"><h2>3. Your planned set <span id="counter" class="muted"></span></h2><p id="empty">Import a library or load the demo, then generate a set.</p><p class="muted">Use <strong>Keep in set</strong> to preserve a track while allowing CrateLoom to reorder it, or <strong>Pin position</strong> to preserve its exact slot. You can manually move either type of locked track. Use ↻ repeatedly to cycle through new alternatives for an unlocked track.</p><div id="results"></div><div class="buttons hidden" id="actions"><button class="secondary" id="copy">Copy track order</button><button id="export">Export for Rekordbox <span style="font-size:11px">PRO</span></button></div><p id="notice" class="muted"></p></section><section class="panel"><h2>Free today. Pro later.</h2><div class="grid"><div><h3>Free</h3><p>Import, plan, preview transitions, and copy your set order.</p></div><div><h3>Pro · proposed $6.99/month</h3><p>Rekordbox-compatible exports, saved sets, and expanded discovery. Not available for purchase yet.</p></div></div></section><footer>CrateLoom MVP. Not affiliated with AlphaTheta or Rekordbox. Key matching is advisory; audition transitions before performing. No billing or login is active.</footer></main><script>
 const $=id=>document.getElementById(id);let library=[],planned=[],playlists=[],lockModes=new Map(),rejectedIds=new Set();const demo=[['Night Drive','Aster',122,'8A'],['Warm Circuit','Mosaic',123,'8A'],['Blue Room','Northline',124,'9A'],['Side Street','Kairo',125,'9A'],['Shifting Lights','Benton',126,'10A'],['Afterhours','Vale',127,'10A'],['Slow Motion','Orbit',128,'11A'],['All In','Kite',128,'11A'],['Parallel','Vesta',129,'12A'],['Switchback','Noma',130,'12A'],['Loom','Vex',131,'1A'],['Last Call','Echo',132,'1A']].map((x,i)=>({id:i+1,name:x[0],artist:x[1],bpm:x[2],key:x[3]}));
 function keyparts(k){k=(k||'').trim();const m=k.match(/^(1[0-2]|[1-9])([AB])$/i);return m?{n:+m[1],mode:m[2].toUpperCase()}:null}function compatible(a,b){const x=keyparts(a),y=keyparts(b);if(!x||!y)return false;return x.n===y.n||x.mode===y.mode&&((x.n%12)+1===y.n||(y.n%12)+1===x.n)}
 function importXml(xml){
@@ -59,6 +59,64 @@ function eligibleTracks(){
 function chooseTrack(candidates,previous,next,mode,build){
  return candidates.map(t=>({t,s:(previous?score(previous,t,mode):0)+(next?score(t,next,mode):0)+(build&&previous&&t.bpm<previous.bpm?15:0)})).sort((a,b)=>a.s-b.s)[0]?.t;
 }
+// Evaluate the whole set rather than choosing only the next best transition.
+function setCost(order,mode,shape){
+ const bpms=order.map(t=>t.bpm),lo=Math.min(...bpms),hi=Math.max(...bpms),span=Math.max(1,hi-lo);
+ let total=0;
+ for(let i=0;i<order.length;i++){
+  if(i){const a=order[i-1],b=order[i];total+=score(a,b,mode);const delta=b.bpm-a.bpm;
+   if(shape==='build'&&delta<0)total+=Math.abs(delta)*5;
+   if(shape==='peak'&&delta>0)total+=delta*5;
+  }
+  const progress=order.length===1?0:i/(order.length-1);
+  const desired=shape==='build'?progress:shape==='peak'?1-progress:shape==='arc'?Math.sin(Math.PI*progress):.5;
+  const actual=(order[i].bpm-lo)/span;
+  total+=Math.abs(actual-desired)*(shape==='steady'?2:10);
+ }
+ return total;
+}
+function optimizeOrder(order,pinned,mode,shape){
+ let best=order.slice(),cost=setCost(best,mode,shape);
+ // Deterministic pair swaps and insertions. Pinned slots are never touched.
+ const movable=[];for(let i=0;i<best.length;i++)if(!pinned.has(i))movable.push(i);
+ for(let pass=0;pass<5;pass++){
+  let improved=false;
+  for(let a=0;a<movable.length;a++)for(let b=a+1;b<movable.length;b++){
+   const i=movable[a],j=movable[b],trial=best.slice();[trial[i],trial[j]]=[trial[j],trial[i]];
+   const candidate=setCost(trial,mode,shape);
+   if(candidate<cost-0.001){best=trial;cost=candidate;improved=true;}
+  }
+  if(!improved)break;
+ }
+ return best;
+}
+// Track replacements already auditioned in each slot so repeated clicks offer new songs.
+const triedBySlot=new Map();
+function replaceAt(index){
+ try{
+  if(!planned[index])throw Error('Generate a set before replacing a track.');
+  const current=planned[index];
+  if(lockModes.has(current.id))throw Error('Unlock this track before replacing it.');
+  const source=eligibleTracks();
+  const inOtherSlots=new Set(planned.filter((_,i)=>i!==index).map(t=>t.id));
+  const choices=source.filter(t=>!inOtherSlots.has(t.id));
+  const tried=triedBySlot.get(index)||new Set();
+  tried.add(current.id);
+  const unseen=choices.filter(t=>!tried.has(t.id));
+  if(!unseen.length){
+   triedBySlot.set(index,tried);
+   throw Error(`No more unused replacement tracks for slot ${index+1} within this playlist and BPM range. Widen the range or choose a larger playlist. (You can also regenerate the whole set.)`);
+  }
+  const previous=planned[index-1]||null,next=planned[index+1]||null;
+  const mode=$('keymode').value,build=$('start').value==='build';
+  const pick=unseen.map(t=>{const trial=planned.slice();trial[index]=t;return {t,cost:setCost(trial,mode,$('start').value)}}).sort((a,b)=>a.cost-b.cost)[0].t;
+  planned[index]=pick;
+  triedBySlot.set(index,tried);
+  rejectedIds.add(current.id);
+  render();
+  $('notice').textContent=`Replaced slot ${index+1} with ${pick.artist} – ${pick.name}. ${unseen.length-1} further untried alternatives available.`;
+ }catch(e){$('notice').textContent=e.message;}
+}
 function generate(keepLocked=false,oneIndex=null){
  try{
   if(!library.length)throw Error('Import a library or load the demo first.');
@@ -109,10 +167,13 @@ function generate(keepLocked=false,oneIndex=null){
    nextSet[i]=pick;
    selected.splice(selected.findIndex(t=>t.id===pick.id),1);
   }
-  planned=nextSet;
+  const pinnedSlots=new Set();
+  if(keepLocked)old.forEach((t,i)=>{if(lockModes.get(t.id)==='position')pinnedSlots.add(i)});
+  planned=optimizeOrder(nextSet,pinnedSlots,mode,$('start').value);
+  triedBySlot.clear();
   if(!keepLocked){lockModes.clear();rejectedIds.clear();}
   else old.forEach(t=>{if(!lockModes.has(t.id)&&!planned.some(x=>x.id===t.id))rejectedIds.add(t.id)});
-  render();$('notice').textContent=keepLocked?'Regenerated: pinned tracks kept their slots; keep-in-set tracks were preserved and may move.':'Set generated from the selected playlist and BPM range.';
+  render();$('notice').textContent=keepLocked?'Regenerated and optimized across the full set: pinned slots stayed fixed, and keep-in-set tracks were preserved.':'Set generated and optimized for full-set flow, harmonic transitions and your BPM progression.';
  }catch(e){$('notice').textContent=e.message;}
 }
 $('generate').onclick=()=>generate(false);
@@ -131,9 +192,9 @@ function render(){
   const controls=document.createElement('div');controls.className='controls';
   const keep=document.createElement('button');keep.textContent=lock==='set'?'✓ Keep in set':'Keep in set';keep.className=lock==='set'?'active':'';keep.title='Keep this track in the set, but allow automatic reordering';keep.setAttribute('aria-pressed',String(lock==='set'));keep.onclick=()=>{if(lock==='set')lockModes.delete(t.id);else lockModes.set(t.id,'set');render()};
   const pin=document.createElement('button');pin.textContent=lock==='position'?'📌 Pinned':'Pin position';pin.className=lock==='position'?'active':'';pin.title='Keep this track at its current position during regeneration';pin.setAttribute('aria-pressed',String(lock==='position'));pin.onclick=()=>{if(lock==='position')lockModes.delete(t.id);else lockModes.set(t.id,'position');render()};
-  const swap=document.createElement('button');swap.textContent='↻ Replace';swap.title='Replace this track, keeping the other positions';swap.disabled=lock!=='none';swap.onclick=()=>generate(true,i);
-  const up=document.createElement('button');up.textContent='↑';up.title='Move up (new position becomes pinned position if pinned)';up.disabled=i===0;up.onclick=()=>{[planned[i-1],planned[i]]=[planned[i],planned[i-1]];render()};
-  const down=document.createElement('button');down.textContent='↓';down.title='Move down (new position becomes pinned position if pinned)';down.disabled=i===planned.length-1;down.onclick=()=>{[planned[i+1],planned[i]]=[planned[i],planned[i+1]];render()};
+  const swap=document.createElement('button');swap.textContent='↻ Replace';swap.title='Replace this track, keeping the other positions';swap.disabled=lock!=='none';swap.onclick=()=>replaceAt(i);
+  const up=document.createElement('button');up.textContent='↑';up.title='Move up (new position becomes pinned position if pinned)';up.disabled=i===0;up.onclick=()=>{[planned[i-1],planned[i]]=[planned[i],planned[i-1]];triedBySlot.clear();render()};
+  const down=document.createElement('button');down.textContent='↓';down.title='Move down (new position becomes pinned position if pinned)';down.disabled=i===planned.length-1;down.onclick=()=>{[planned[i+1],planned[i]]=[planned[i],planned[i+1]];triedBySlot.clear();render()};
   controls.append(keep,pin,swap,up,down);div.append(controls);root.append(div);
  });
 }
